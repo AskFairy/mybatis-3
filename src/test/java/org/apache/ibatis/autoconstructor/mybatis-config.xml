@@ -26,9 +26,14 @@
 
     <environments default="development">
         <environment id="development">
+            <!-- 配置事务管理 -->
             <transactionManager type="JDBC">
                 <property name="" value=""/>
             </transactionManager>
+            <!-- 配置数据源
+             HSQLDB是一款Java内置的数据库，
+             非常适合在用于快速的测试和演示的Java程序中。(无需独立安装数据库).
+            -->
             <dataSource type="UNPOOLED">
                 <property name="driver" value="org.hsqldb.jdbcDriver"/>
                 <property name="url" value="jdbc:hsqldb:mem:automapping"/>
@@ -37,6 +42,7 @@
         </environment>
     </environments>
 
+    <!-- 扫描 Mapper 文件  -->
     <mappers>
         <mapper resource="org/apache/ibatis/autoconstructor/AutoConstructorMapper.xml"/>
     </mappers>
